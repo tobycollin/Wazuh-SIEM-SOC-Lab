@@ -31,7 +31,29 @@ The lab focuses on endpoint security monitoring, log collection, threat detectio
 The project documentation will cover the following:
 
 ### Phase 1: Wazuh Server Deployment
-Installation and configuration of the Wazuh SIEM server on Ubuntu.
+### Wazuh Manager Service Verification
+After deploying the Wazuh manager on Ubuntu, I verified that the service was running successfully.
+
+**Command executed:**
+```bash
+sudo systemctl status wazuh-manager
+```
+***Verification Results:**
+- Wazuh Manager service was active and running.
+- The service was enabled.
+- Wazuh analysis engine processes were running.
+- Wazuh log collector processes were running.
+- Wazuh API processes were running.
+  
+**Evidence:**
+
+![Wazuh Manager Service Status](Screenshots/wazuh-manager-status.png)
+
+**Security Relevance:**
+
+The Wazuh Manager is responsible for processing security events collected from monitored endpoints and evaluating them against configured detection rules. 
+Verifying its operational status is an important step in maintaining a functional SIEM environment.
+  
 
 ### Phase 2: Endpoint Integration 
 Deployment of Wazuh agents on Windows and Linux endpoints.
