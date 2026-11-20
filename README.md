@@ -261,7 +261,40 @@ Verifying agent connectivity helps ensure that monitored systems remain visible 
 
 ---
 ### Phase 3: Windows Sysmon Integration 
-Configuration of Sysmon to collect detailed Windows telemetry.
+#### Overview
+The third phase of this project focused on implementing advanced Windows endpoint monitoring using Microsoft Sysmon (Sysmon Monitor) and integrating its security telemetry with the Wazuh Security Information and Event Management (SIEM) infrastructure.
+Sysmon is a Windows system service that provides detailed visibility into system activities, including process execution, file creation, registry modifications, and other security-relevant events.
+The primary objectives of this phase were:
+
+- Install and configure Microsoft Sysmon on the Windows 10 virtual machine.
+- Enable detailed Windows endpoint security monitoring
+- Configure the Wazuh agent to collect Sysmon security events.
+- Verify Sysmon event generation using Windows PowerShell.
+- Identify and analyze security-relevant Sysmon event IDs.
+- Prepare endpoint telemetry for centralized monitoring within wazuh
+---
+
+#### 3.1 Sysmon Installation and Configuration
+Microsoft Sysmon was installed on the Windows 10 virtual machine to enhance endpoint security monitoring capabilities.
+Sysmon provides detailed system activity information that can assist in detecting suspicious behaviour and investigating potential security incidents.
+The installation was performed on the Windows 10 endpoint already integrated with the Wazuh SIEM infrastructure.
+
+**Sysmon Monitoring Capabilities:**
+- Process creation and execution monitoring.
+- File creation monitoring.
+- Windows registry modification tracking.
+- Process execution metadata collection.
+- Network connection monitoring when enable.
+- Detailed Windows endpoint activity logging.
+
+#### Sysmon Service Verification:
+**Executed Command:**
+```bash
+Get-Service *Sysmon*
+```
+**Screenshot Evidence:**
+
+
 
 ### Phase 4: Security Event Monitoring 
 Monitoring Windows authentication events, account activity and other security events.
@@ -273,5 +306,5 @@ Creating and testing Wazuh detection rules for suspicious security activities.
 Analyzing security alerts and documenting investigation findings
 
 ## Project Screenshots 
-Screenshots demonstrating the implementation, configuration and security monitoring activities will be added as the project documentation
+Screenshots demonstrating the implementation, configuration and security monitoring activities will be added as the project documentation.
 
