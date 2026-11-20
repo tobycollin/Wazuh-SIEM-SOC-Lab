@@ -191,6 +191,52 @@ sudo systemctl status wazuh-agent
          
 The active (running) status confirms that the Wazuh agent service is operational on the Ubuntu Linux endpoint. 
 
+#### Screenshot Evidence
+![Ubuntu Wazuh Agent Verification](Screenshots/ubuntu-wazuh-agent-status.png)
+
+The Ubuntu Linux terminal displaying the operational status of the Wazuh agent was logged in through SSH on the host machine.
+
+#### Security Relevance 
+Deploying the Wazuh agent on a Linux endpoint provides the foundation for:
+- Monitoring Linux authentication events.
+- Detecting suspicious SSH login attempts.
+- Monitoring system security logs.
+- Identifying unauthorized system modifications.
+- Collecting Linux security telemetry.
+- Supporting threat detection and incident investigation.
+This integration extends centralized security monitoring across multiple operating systems.
+---
+
+### 2.3 Endpoint Integration Architecture
+#### Overview
+The Wazuh SIEM infrastructure consists of a centralized Wazuh Server and two monitored endpoints.
+The Wazuh Server contains three primary components:
+- Wazuh Manager
+- Wazuh Indexer
+- Wazuh Dashboard
+The Windows 10 and Ubuntu Linux endpoints communicates with the Wazuh Manager through their installed Wazuh agents.
+#### Architecture
+      +------------------------------------------------------------------------+
+      |                          WAZUH  SERVER                                 |
+      |------------------------------------------------------------------------|
+      |  Wazuh Manager                                                         |
+      |  Wazuh Indexer                                                         |
+      |  Wazuh Dashboard                                                       |
+      +------------------------------------------------------------------------|
+                                   ^
+                                   |
+                         Agent Communication
+                                   |
+                        +----------+-----------+
+                        |                      |
+                        |                      |
+              +-----------------+       +---------------+
+              | Windows 10      |       | Ubuntu Linux  |
+              | Endpoint        |       |               |
+              |-----------------|       |---------------|
+              | Wazuh Agent     |       | Wazuh Agent   |
+              +-----------------+       +---------------+
+
 
 ### Phase 3: Windows Sysmon Integration 
 Configuration of Sysmon to collect detailed Windows telemetry.
