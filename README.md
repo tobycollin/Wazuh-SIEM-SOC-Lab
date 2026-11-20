@@ -237,7 +237,29 @@ The Windows 10 and Ubuntu Linux endpoints communicates with the Wazuh Manager th
               | Wazuh Agent     |       | Wazuh Agent   |
               +-----------------+       +---------------+
 
+### 2.4 Agent Connectivity Verification
+#### Objective 
+Verify successful communication between the Windows 10 and Ubuntu Linux endpoints and centralized Wazuh Manager.
 
+### Verification Procedure 
+Agent connectivity can be verified through the Wazuh Dashboard.
+Verification steps:
+1. Access the Wazuh Dashboard.
+2. Navigate to the endpoint or agent management section.
+3. Locate the registered Windows 10 endpoint.
+4. Located the registered Ubuntu Linux endpoint.
+5. Verify that both endpoints display an Active connection status.
+
+#### Screenshot Evidence
+![Wazuh Endpoint Connectivity](Screenshots/wazuh-connected-agents.png)
+Wazuh Dashboard Displaying registered and connected endpoints.
+
+#### Security Relevance
+Agent connectivity verification is essential for maintaining visibility across monitored endpoints.
+Disconnected agents may prevent the ability to receive the current endpoint security telemetry.
+Verifying agent connectivity helps ensure that monitored systems remain visible within the centralized SOC environment.
+
+---
 ### Phase 3: Windows Sysmon Integration 
 Configuration of Sysmon to collect detailed Windows telemetry.
 
