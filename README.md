@@ -148,15 +148,48 @@ Windows Powershell was used to verify that the Wazuh agent service was operation
 ```bash
 Get-Service -Name WazuhSvc
 ```
-Expected verification result:
-   Status     Name      DisplayName
-   ------     ----      -----------
-   Running    WazuhSvc  Wazuh
-   
+  
    The Running status confirms that the Wazuh agent service is operational on the Windows 10 endpoint.
 
    #### Screenshot Evidence
+![Windows 10 Wazuh Agent Verification](Screenshots/windows-wazuh-agent-status.png)
 
+#### Security Relevance
+Deploying the Wazuh agent on a Windows endpoint provides the foundation for:
+- Monitoring Windows authentication events.
+- Detecting suspicious login attempts.
+- Monitoring user account activities.
+- Collecting Windows security event logs.
+- Identifying potential end point security threats.
+- Supporting security incident investigations.
+This integration enables Windows endpoint telemetry to be collected and analyzed through the centralized SIEM infrastructure.
+---
+
+### 2.2 Ubuntu Linux Wazuh Agent Deployment 
+#### Objective
+Deploy and configure the Wazuh agent on an Ubuntu Linux virtual machine to enable centralized monitoring of Linux system activities.
+
+#### Implementation 
+The Ubuntu Linux endpoint was deployed within VMware and configured to communicate with the Wazuh Manager.
+The implementation involved:
+1. Installing the Wazuh agent on the Ubuntu endpoint.
+2. Configuring the Wazuh Manager connection.
+3. Starting the Wazuh agent service.
+4. Verifying the operational status of the agent.
+5. Preparing the Linux endpoint for centralized security monitoring.
+
+#### Agent Service Verification
+The Linux system service manager was used to verify the Wazuh agent.
+
+**Command Executed:**
+```bash
+sudo systemctl status wazuh-agent
+```
+
+#### Expected Verification Result:
+         Active: active (running)
+         
+The active (running) status confirms that the Wazuh agent service is operational on the Ubuntu Linux endpoint. 
 
 
 ### Phase 3: Windows Sysmon Integration 
