@@ -359,7 +359,62 @@ The following XML configuration was included within the existing Wazuh agent con
 This configuration allows the Wazuh agent to collect Sysmon security telemetry and forward it to the Wazuh Manager for processing.
 
 **Screenshot Evidence:**
+![Wazuh Agent Sysmon Configuration](Screenshots/wazuh-agent-sysmon-configuration.png)
 
+**Security Relevance:**
+Integrating Sysmon with Wazuh enables centralized collection of detailed Windows endpoint security telemetry.
+This improves endpoint visibility and supports threat detection, event correlation and security incident investigation.
+
+---
+
+#### 3.4 Centralized Security Event Collection Architecture
+The Sysmon integration establishes a security event collection workflow between the Windows 10 endpoint and the centralized Wazuh SIEM infrastructure.
+
+**Architecture Overview:**
+```text
+       +----------------------------------------------------------+
+       |                  WINDOWS 10 ENDPOINT                     |
+       |                                                          |
+       |                   Microsoft Sysmon                       |
+       |                           |                              |
+       |                           v                              |
+       |                  Windows Event Log                       |
+       |                           |                              |
+       |                           v                              |
+       |                      Wazuh Agent                         |
+       |----------------------------------------------------------+
+                                   |
+                                   |
+                           Agent Communication
+                                   |
+                                   v
+        +----------------------------------------------------------+
+        |                    WAZUH SERVER                          |
+        |                                                          |
+        |                     Wazuh Manager                        |
+        |                           |                              |
+        |                           v                              |
+        |                      Wazuh Indexer                       |
+        |                           |                              |
+        |                           v                              |
+        |                      Wazuh Dashboard                     |
+        +----------------------------------------------------------+
+```
+
+**Architecture Explanation:**
+
+1. Microsoft Sysmon monitors security-relevant activities on the Windows 10 endpoint.
+2. Sysmon records generated events in the Windows Event Log.
+3. The Wazuh agent collects configured Sysmon events.
+4. The Wazuh agent forwards collected events to the Wazuh Manager.
+5. The Wazuh Manager processes security events and evaluates detection rules.
+6. Generated alerts are forwarded for indexing and visualization through the Wazuh infrastructure.
+
+**Security Relevance:**
+Centralized security monitoring allows the investigation of endpoint activities through a unified monitoring platform.
+This reduces the need to examine endpoint logs individually and supports security event correlation across monitored systems.
+
+---
 
 
 
