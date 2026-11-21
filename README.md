@@ -293,6 +293,38 @@ The installation was performed on the Windows 10 endpoint already integrated wit
 Get-Service *Sysmon*
 ```
 **Screenshot Evidence:**
+![Sysmon Service Verification](Screenshots/sysmon-service-verification.png)
+
+#### Security Relevance: 
+Sysmon enhances endpoint visibility by collecting detailed system activity information.
+This telemetry can assist in identifying suspicious processes, unauthorized applications, malicious Scripts, and potentially malicious system modifications.
+
+---
+#### 3.2 Sysmon Event Log Verification
+After configuring Sysmon, I verified that the Windows endpoint was successful generating security events.
+The verification was performed using Windows Powershell with administartive priviledges.
+
+**Command Executed:**
+```bash
+Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 10
+```
+
+**Verification Results:**
+The PowerShell output confirmed that Sysmon was actively generating Windows security events.
+The following event IDs were obsereved:
+- Event ID 1: Process Creation.
+- Event ID 11: File Creation.
+- Event ID 13: Registry Value Set.
+The generated security events contained information including:
+- Event timestamps.
+- Event identifiers.
+- Event providers.
+- Event description
+- Event severity levels.
+
+**Screenshot Evidence:**
+
+
 
 
 
